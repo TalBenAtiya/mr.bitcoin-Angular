@@ -1,0 +1,9 @@
+<section (click)="setId.emit(contact._id)" class="contact-preview">
+    <button (click)="remove.emit(contact._id)" class="btn close-btn"><img src="../../../assets/img/remove.png" /></button>
+    <div class="info">
+        <h3>{{contact.name}}</h3>
+        <h4>{{contact.email}}</h4>
+        <h4>{{contact.phone}}</h4>
+    </div>
+    <img class="contact-img" src="https://robohash.org/{{contact._id}}.png?set=set5"/>
+</section>

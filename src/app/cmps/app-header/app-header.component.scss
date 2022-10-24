@@ -1,0 +1,30 @@
+.main-header {
+    background-color: var(--clr-white2);
+    margin-bottom: 40px;
+
+    .app-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+
+        h1 {
+            font-size: 30px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+
+            span {
+                color: var(--clr-main);
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--clr-black);
+                }
+            }
+
+        }
+    }
+}

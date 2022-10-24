@@ -1,0 +1,8 @@
+<section *ngIf="contact" class="contact-details main-layout">
+    <button (click)="setId.emit('')" class="btn btn-back">Back</button>
+    <img class="contact-img" src="https://robohash.org/{{contact._id}}.png?set=set5"/>
+    <h3>{{contact.name}}</h3>
+    <h4>{{contact.email}}</h4>
+    <h4>{{contact.phone}}</h4>
+</section>
+
