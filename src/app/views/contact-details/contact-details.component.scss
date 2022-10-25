@@ -1,0 +1,48 @@
+.contact-details {
+    display: flex;
+    flex-direction: column;
+
+    .container {
+        display: flex;
+        border: 5px solid var(--clr-white2);
+        border-radius: 0.5em;
+        min-height: 350px;
+        margin-bottom: 20px;
+    }
+
+    .info {
+        flex: 1;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        background-color: var(--clr-white2);
+
+        img {
+            width: 200px;
+        }
+    }
+
+    .transfers {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        h1 {
+            color: var(--clr-main);
+        }
+    }
+
+    .btn-back {
+        background-color: var(--clr-white2);
+        align-self: center;
+        padding-inline: 20px;
+        padding-block: 5px;
+
+        &:hover {
+            background-color: var(--clr-main);
+        }
+    }
+}

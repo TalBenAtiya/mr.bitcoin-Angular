@@ -36,6 +36,10 @@
         border-radius: 0.5em;
         border: 3px solid var(--clr-white);
 
+        img {
+            width: 180px;
+        }
+
         h1 {
             color: var(--clr-main);
             margin-bottom: 20px;

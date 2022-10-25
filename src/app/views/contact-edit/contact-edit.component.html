@@ -3,6 +3,7 @@
     <div class="container">
         <h1 *ngIf="contact._id">Edit Contact</h1>
         <h1 *ngIf="!contact._id">Add Contact</h1>
+        <img *ngIf="contact._id" src="https://robohash.org/{{contact._id}}.png?set=set5" />
         <label for="name">Name</label>
         <input [(ngModel)]="contact.name" type="text" id="name" name="name" />
         <label for="email">Email</label>
