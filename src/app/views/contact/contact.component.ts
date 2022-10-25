@@ -25,8 +25,4 @@ export class ContactComponent implements OnInit {
   removeContact(contactId: string) {
     this.contactService.deleteContact(contactId)
   }
-
-  setSelectedId(contactId: string) {
-    this.selectedId = contactId
-  }
 }

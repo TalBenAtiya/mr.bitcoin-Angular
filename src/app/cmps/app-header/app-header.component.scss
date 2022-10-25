@@ -16,11 +16,15 @@
             display: flex;
             gap: 15px;
 
-            span {
+            a {
                 color: var(--clr-main);
                 cursor: pointer;
 
                 &:hover {
+                    color: var(--clr-black);
+                }
+
+                &.active {
                     color: var(--clr-black);
                 }
             }

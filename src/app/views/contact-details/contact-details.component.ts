@@ -1,23 +1,38 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Contact } from 'src/models/contact.model';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Subscription } from 'rxjs';
 import { ContactService } from 'src/services/contact.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'contact-details',
   templateUrl: './contact-details.component.html',
   styleUrls: ['./contact-details.component.scss']
 })
-export class ContactDetailsComponent implements OnInit {
+export class ContactDetailsComponent implements OnInit, OnDestroy {
 
-  constructor(private contactService: ContactService) { }
-  @Input() selectedId!: string
-  @Output() setId = new EventEmitter<string>()
+  constructor(
+    private contactService: ContactService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
+
   contact!: Contact
+  paramsSubscription!: Subscription
 
   async ngOnInit() {
-    const contact = await lastValueFrom(this.contactService.getContactById(this.selectedId))
-    if (contact) this.contact = contact
-}
+    this.paramsSubscription = this.route.params.subscribe(async params => {
+      const contact = await lastValueFrom(this.contactService.getContactById(params['id']))
+      console.log('contact:', contact)
+      if (contact) this.contact = contact
+    })
+  }
 
+  goBack() {
+    this.router.navigate(['/contact'])
+  }
+
+  ngOnDestroy() {
+    this.paramsSubscription.unsubscribe()
+  }
 }

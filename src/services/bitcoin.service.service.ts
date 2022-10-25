@@ -11,13 +11,11 @@ export class BitcoinService {
 
 
   public getCoinRate() {
-    console.log('hi');
     
-    const result = this.http.get<{ USD: { last: number } }>('https://blockchain.info/ticker')
+    return this.http.get<{ USD: { last: number } }>('https://blockchain.info/ticker')
       .pipe(
         map(res => res.USD.last)
       )
-      console.log('result:', result)
-      return result
+     
   }
 }

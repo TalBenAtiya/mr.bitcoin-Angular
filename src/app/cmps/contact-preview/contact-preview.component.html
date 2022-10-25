@@ -1,5 +1,6 @@
-<section (click)="setId.emit(contact._id)" class="contact-preview">
-    <button (click)="remove.emit(contact._id)" class="btn close-btn"><img src="../../../assets/img/remove.png" /></button>
+<section [routerLink]="['/contact', contact._id]" class="contact-preview">
+    <button (click)="remove.emit(contact._id)" class="btn btn-close"><img src="../../../assets/img/remove.png" /></button>
+    <button (click)="goToEdit($event)" class="btn btn-edit"><img src="../../../assets/img/edit.png" /></button>
     <div class="info">
         <h3>{{contact.name}}</h3>
         <h4>{{contact.email}}</h4>

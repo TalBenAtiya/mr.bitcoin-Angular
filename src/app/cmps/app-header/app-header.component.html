@@ -2,9 +2,9 @@
     <section class="app-header main-layout">
         <h1>Mr<span>.Bitcoin</span></h1>
         <nav>
-            <span> Home </span>
-            <span> Contacts </span>
-            <span> Statistics </span>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> Home </a>
+            <a routerLink="/contact" routerLinkActive="active" >Contacts</a>
+            <a> Statistics </a>
         </nav>
     </section>
 </header>

@@ -1,12 +1,8 @@
 <section class="contact main-layout">
-    <div *ngIf="!selectedId; else contactDetails" >
-        <h2>Contacts</h2>
-        <div class="container">
-            <contact-preview *ngFor="let contact of contacts" [contact]="contact" (setId)="setSelectedId($event)"
-                (remove)="removeContact($event)"></contact-preview>
-        </div>
+    <h2>Contacts</h2>
+    <div class="container">
+        <contact-preview *ngFor="let contact of contacts" [contact]="contact" (remove)="removeContact($event)">
+        </contact-preview>
     </div>
-    <ng-template #contactDetails>
-        <contact-details [selectedId]="selectedId" (setId)="setSelectedId($event)"></contact-details>
-    </ng-template>
+    <router-outlet></router-outlet>
 </section>

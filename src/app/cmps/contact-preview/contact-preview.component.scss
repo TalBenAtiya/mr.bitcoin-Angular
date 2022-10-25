@@ -10,10 +10,21 @@
     cursor: pointer;
     border-radius: 0.3em;
     position: relative;
+    overflow: hidden;
 
     &:hover {
         box-shadow: 0px -1px 29px -11px rgba(0, 0, 0, 0.44);
         background-color: var(--clr-main);
+
+        .btn-close {
+            opacity: 1;
+            translate: 0px 0;
+        }
+
+        .btn-edit {
+            opacity: 1;
+            translate: 0px 0;
+        }
     }
 
     .info {
@@ -29,11 +40,32 @@
         bottom: -15px;
     }
 
-    .close-btn {
+    .btn-edit {
+        background-color: transparent;
+        position: absolute;
+        top: 8px;
+        left: 15px;
+        transition: 0.3s ease-in-out;
+        translate: -25px 0;
+        opacity: 0;
+
+        img {
+            width: 20px;
+
+            &:hover {
+                scale: 1.1;
+            }
+        }
+    }
+
+    .btn-close {
         background-color: transparent;
         position: absolute;
         top: 8px;
         right: 4px;
+        translate: 25px 0;
+        opacity: 0;
+        transition: 0.3s;
 
         img {
             width: 20px;

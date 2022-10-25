@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { User } from 'src/models/user.model';
-import {Observable} from 'rxjs'
+import {lastValueFrom, Observable} from 'rxjs'
 import { BitcoinService } from 'src/services/bitcoin.service.service';
 import { UserService } from 'src/services/user.service';
 
@@ -15,9 +15,9 @@ export class HomeComponent implements OnInit {
   user!: User
   constructor(private userService: UserService, private bitcoinService: BitcoinService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.user = this.userService.getUser()
-    this.bitcoinService.getCoinRate().subscribe(val => this.rate = val)
+    this.rate = await lastValueFrom(this.bitcoinService.getCoinRate())
   }
 
 }

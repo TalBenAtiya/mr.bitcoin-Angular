@@ -9,6 +9,7 @@ import { ContactComponent } from './views/contact/contact.component';
 import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
 import { ContactDetailsComponent } from './views/contact-details/contact-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactEditComponent } from './views/contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     ContactComponent,
     ContactPreviewComponent,
     ContactDetailsComponent,
+    ContactEditComponent,
   ],
   imports: [
     BrowserModule,
