@@ -1,6 +1,10 @@
 <section class="contact main-layout">
     <h2>Contacts</h2>
     <div class="container">
+        <div routerLink="edit" class="btn btn-add-contact">
+            <img src="../../../assets/img/add.png">
+            <h2> Add Contact</h2>
+        </div>
         <contact-preview *ngFor="let contact of contacts" [contact]="contact" (remove)="removeContact($event)">
         </contact-preview>
     </div>

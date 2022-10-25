@@ -1,1 +1,14 @@
-<p>contact-edit works!</p>
+<section *ngIf="contact" class="contact-edit">
+    <div (click)="goBack()" class="background"></div>
+    <div class="container">
+        <h1 *ngIf="contact._id">Edit Contact</h1>
+        <h1 *ngIf="!contact._id">Add Contact</h1>
+        <label for="name">Name</label>
+        <input [(ngModel)]="contact.name" type="text" id="name" name="name" />
+        <label for="email">Email</label>
+        <input [(ngModel)]="contact.email" type="email" id="email" />
+        <label for="phone">Phone</label>
+        <input [(ngModel)]="contact.phone" type="text" id="phone" />
+        <button (click)="onSaveContact()" class="btn btn-save">Save</button>
+    </div>
+</section>

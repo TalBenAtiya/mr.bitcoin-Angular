@@ -23,7 +23,6 @@ export class ContactDetailsComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.paramsSubscription = this.route.params.subscribe(async params => {
       const contact = await lastValueFrom(this.contactService.getContactById(params['id']))
-      console.log('contact:', contact)
       if (contact) this.contact = contact
     })
   }

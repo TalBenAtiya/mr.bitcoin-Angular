@@ -6,15 +6,18 @@ import { ContactComponent } from './views/contact/contact.component';
 import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'contact/:id', component: ContactDetailsComponent},
-  {path: 'contact', component: ContactComponent, children: [
-    {path: 'edit/:id', component: ContactEditComponent}
-  ]},
+  { path: '', component: HomeComponent },
+  {
+    path: 'contact', component: ContactComponent, children: [
+      { path: 'edit/:id', component: ContactEditComponent },
+      { path: 'edit', component: ContactEditComponent }
+    ]
+  },
+  { path: 'contact/:id', component: ContactDetailsComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true}) ],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

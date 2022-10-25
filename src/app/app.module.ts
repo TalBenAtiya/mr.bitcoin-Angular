@@ -10,7 +10,7 @@ import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.
 import { ContactDetailsComponent } from './views/contact-details/contact-details.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactEditComponent } from './views/contact-edit/contact-edit.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +25,7 @@ import { ContactEditComponent } from './views/contact-edit/contact-edit.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,5 +4,44 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
         gap: 20px;
+
+        .btn-add-contact {
+            display: flex;
+            position: relative;
+            background-color: var(--clr-white2);
+            border-radius: 0.3em;
+            box-shadow: 0px -1px 29px -11px rgba(0, 0, 0, 0.113);
+            transition: 0.2s;
+            overflow: hidden;
+            height: 155px;
+
+            h2 {
+                transition: 0.2s;
+            }
+          
+            img {
+                width: 130px;
+                position: absolute;
+                left: -20px;
+                opacity: 0;
+                transition: 0.2s;
+                
+            }
+
+            &:hover {
+                background-color: var(--clr-main);
+                box-shadow: 0px -1px 29px -11px rgba(0, 0, 0, 0.44);
+
+                img {
+                    left: 30px;
+                    opacity: 0.7;
+                }
+
+                h2 {
+                    translate: 50%;
+                }
+    
+            }
+        }
     }
 }
