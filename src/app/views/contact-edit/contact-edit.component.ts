@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from 'src/models/contact.model';
-import { ContactService } from 'src/services/contact.service';
+import { ContactService } from 'src/app/services/contact.service';
 import { lastValueFrom ,Subscription } from 'rxjs'
 
 @Component({

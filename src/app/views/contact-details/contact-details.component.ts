@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Contact } from 'src/models/contact.model';
 import { lastValueFrom, Subscription } from 'rxjs';
-import { ContactService } from 'src/services/contact.service';
+import { ContactService } from 'src/app/services/contact.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -21,10 +21,10 @@ export class ContactDetailsComponent implements OnInit, OnDestroy {
   paramsSubscription!: Subscription
 
   async ngOnInit() {
-    this.paramsSubscription = this.route.params.subscribe(async params => {
-      const contact = await lastValueFrom(this.contactService.getContactById(params['id']))
+    this.paramsSubscription = this.route.data.subscribe(data => {
+      const contact = data['contact']
       if (contact) this.contact = contact
-    })
+  })
   }
 
   goBack() {

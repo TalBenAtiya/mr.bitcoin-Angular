@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactResolver } from './services/resolvers/contact.resolver';
 import { ContactDetailsComponent } from './views/contact-details/contact-details.component';
 import { ContactEditComponent } from './views/contact-edit/contact-edit.component';
 import { ContactComponent } from './views/contact/contact.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
       { path: 'edit', component: ContactEditComponent }
     ]
   },
-  { path: 'contact/:id', component: ContactDetailsComponent },
+  { path: 'contact/:id', component: ContactDetailsComponent ,resolve: { contact: ContactResolver }, },
 ];
 
 @NgModule({

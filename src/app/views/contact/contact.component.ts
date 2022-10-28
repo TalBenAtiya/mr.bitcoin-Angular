@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/models/contact.model';
 import { Observable, Subscription } from 'rxjs';
-import { ContactService } from 'src/services/contact.service';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'contact',

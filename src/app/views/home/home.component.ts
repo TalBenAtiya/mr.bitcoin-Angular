@@ -1,8 +1,8 @@
 import { Component, OnInit} from '@angular/core';
 import { User } from 'src/models/user.model';
 import {lastValueFrom, Observable} from 'rxjs'
-import { BitcoinService } from 'src/services/bitcoin.service.service';
-import { UserService } from 'src/services/user.service';
+import { BitcoinService } from 'src/app/services/bitcoin.service.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'home',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
-import { Contact } from '../models/contact.model';
+import { Contact } from '../../models/contact.model';
 
 
 

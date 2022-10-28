@@ -1,8 +1,8 @@
-<section *ngIf="contact" class="contact-details main-layout">
-    <section class="container">
+<section *ngIf="contact" class="contact-details">
+    <section class="container main-layout">
         <div class="info">
-            <img class="contact-img" src="https://robohash.org/{{contact._id}}.png?set=set5" />
-            <div>
+            <img src="https://robohash.org/{{contact._id}}.png?set=set5" />
+            <div class="">
                 <h3>{{contact.name}}</h3>
                 <h4>{{contact.email}}</h4>
                 <h4>{{contact.phone}}</h4>
