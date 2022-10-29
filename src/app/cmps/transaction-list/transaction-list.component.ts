@@ -21,10 +21,9 @@ export class TransactionListComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userService.getUser()
 
+    if (this.user.moves.length <= 0) return
     if (this.contact) {
-      console.log('user.moves:', this.user.moves)
       this.transactions = this.user.moves.filter(move => { return move.to === this.contact.name }).slice(0, 3)
-      console.log('this.transactions:', this.transactions)
     } else {
       this.transactions = this.user.moves.slice(0, 3)
     }

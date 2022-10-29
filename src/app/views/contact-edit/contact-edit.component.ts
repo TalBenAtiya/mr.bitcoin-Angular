@@ -27,7 +27,6 @@ export class ContactEditComponent implements OnInit {
   }
 
   async onSaveContact() {
-    console.log('this.contact:', this.contact)
     await this.contactService.saveContact(this.contact)
     this.router.navigateByUrl('/contact')
   }

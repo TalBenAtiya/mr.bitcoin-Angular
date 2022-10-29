@@ -14,8 +14,6 @@ export class LineChartComponent implements OnInit {
   public chart: any;
 
   ngOnInit(): void {
-    console.log('chartX:', this.chartX)
-    console.log('chartY:', this.chartY)
     this.createChart();
   }
 
@@ -49,7 +47,7 @@ export class LineChartComponent implements OnInit {
         },
         responsive: true,
         aspectRatio: 2.5,
-        
+
       }
     })
   }

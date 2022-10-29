@@ -18,7 +18,6 @@ export class ContactResolver implements Resolve<Promise<Contact>> {
    async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id']
         const contact = await this.contactService.getContactById(id)
-        console.log(contact);
         return contact
     }
 }

@@ -28,7 +28,6 @@ export class ContactDetailsComponent implements OnInit, OnDestroy {
     this.paramsSubscription = this.route.data.subscribe(data => {
       const contact = data['contact']
       if (contact) this.contact = contact
-      console.log('this.contact:', this.contact)
     })
   }
 

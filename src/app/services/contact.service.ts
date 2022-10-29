@@ -160,12 +160,9 @@ export class ContactService {
 
     public async getContactById(id: string): Promise<Contact> {
         //mock the server work
-        console.log('id:', id)
         const contact = id ?
             await storageService.get(STORAGE_KEY, id) as Contact :
             this.getEmptyContact()
-
-        console.log('contactService:', contact)
 
         //return an observable
         return contact
@@ -198,7 +195,6 @@ export class ContactService {
     private _addContact(contact: Contact) {
         //mock the server work
         const newContact = new Contact(contact.name, contact.email, contact.phone);
-        console.log('newContact:', newContact)
         if (typeof newContact.setId === 'function') newContact.setId(getRandomId());
         this._contactsDb.push(newContact)
         this._contacts$.next(this._sort(this._contactsDb))

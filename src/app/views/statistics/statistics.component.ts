@@ -22,7 +22,5 @@ export class StatisticsComponent implements OnInit {
         this.marketHistoryData.x.push(new Date(value.x * 1000).toLocaleDateString())
       })
     })
-
-    console.log('marketHistoryData:', this.marketHistoryData)
   }
 }
