@@ -24,15 +24,21 @@ export class UserService {
     }
 
     handleTransaction(transaction: Transaction) {
-        let user = this._loadFromStorage(STORAGE_KEY)
-        user.balance -= transaction.amount
         transaction.at = Date.now()
-        user.transactions.push(transaction)
-        this._saveToStorage(STORAGE_KEY, user)
-        return user
+        let user = this._loadFromStorage(STORAGE_KEY)
+        transaction.from = user.name
+        if (user.balance >= transaction.amount && transaction.amount > 0) {
+            user.balance -= transaction.amount
+            if (user.moves) user.moves.unshift(transaction)
+            else user.moves = [transaction]
+            this._saveToStorage(STORAGE_KEY, user)
+            return true
+        } else {
+            return false
+        }
     }
 
-    login(username:string) {
+    login(username: string) {
         let user = this._loadFromStorage(STORAGE_KEY)
         if (!user || user.name !== username) {
             user = this.getEmptyUser()
@@ -55,8 +61,8 @@ export class UserService {
         localStorage.setItem(key, str);
     }
 
-    _loadFromStorage(key:string) {
+    _loadFromStorage(key: string) {
         const str = localStorage.getItem(key)
-         if (str) return JSON.parse(str)
+        if (str) return JSON.parse(str)
     }
 }

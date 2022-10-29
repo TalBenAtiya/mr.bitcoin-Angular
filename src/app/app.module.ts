@@ -15,6 +15,7 @@ import { StatisticsComponent } from './views/statistics/statistics.component';
 import { LineChartComponent } from './cmps/line-chart/line-chart.component';
 import { NgChartsModule } from 'ng2-charts';
 import { LoginComponent } from './views/login/login.component';
+import { TransactionListComponent } from './cmps/transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoginComponent } from './views/login/login.component';
     StatisticsComponent,
     LineChartComponent,
     LoginComponent,
+    TransactionListComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,10 @@
+<section class="transaction-list">
+    <h1>Last Transactions :</h1>
+    <div *ngFor="let transaction of transactions" class="transaction">
+        <h3>{{transaction.from}}</h3>
+        <h3>{{transaction.to}}</h3>
+        <h3 *ngIf="!contact" class="amount red">-{{transaction.amount}}BTC</h3>
+        <h3 *ngIf="contact" class="amount green">+{{transaction.amount}}BTC</h3>
+        <h3 class="at">{{transaction.at | date}}</h3>
+    </div>
+</section>

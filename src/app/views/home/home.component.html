@@ -1,10 +1,15 @@
 <section *ngIf="rate" class="home main-layout">
-    <div class="container user">
-        <h2>Welcome , {{user.name}}</h2>
-        <h3>Balance is: <span>{{user.balance}}BTC</span></h3>
+    <div class="cards">
+        <div class="container user">
+            <h2>Welcome , {{user.name}}</h2>
+            <h3>Balance is: <span>{{user.balance}}BTC</span></h3>
+        </div>
+        <div class="container rate">
+            <h3>BTC/USD Rate</h3>
+            <h2> ${{rate}} </h2>
+        </div>
     </div>
-    <div class="container rate">
-        <h3>BTC/USD</h3>
-        <h2> ${{rate}} </h2>
+    <div class="transaction-container">
+        <transaction-list></transaction-list>
     </div>
 </section>

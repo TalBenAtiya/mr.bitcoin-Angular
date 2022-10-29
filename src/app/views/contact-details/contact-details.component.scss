@@ -23,8 +23,8 @@
         align-items: center;
         justify-content: center;
         gap: 15px;
-        background-color: var(--clr-white);
-        border: 2px solid var(--clr-white);
+        background-color: var(--clr-white2);
+        border: 2px solid var(--clr-white2);
         border-top-left-radius: 0.5em;
         border-bottom-left-radius: 0.5em;
 
@@ -44,12 +44,46 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        border: 2px solid var(--clr-white);
+        justify-content: space-around;
+        border: 2px solid var(--clr-white2);
         border-top-right-radius: 0.5em;
         border-bottom-right-radius: 0.5em;
+        padding-inline: 10px;
+        padding-bottom: 10px;
 
         h1 {
             color: var(--clr-main);
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: fit-content;
+            margin-inline: auto;
+            margin-bottom: 10px;
+
+            .msg {
+                color: var(--clr-white);
+            }
+
+            label {
+                color: var(--clr-white);
+            }
+
+            input {
+                padding: 8px;
+            }
+
+            .btn-send {
+                padding: 5px;
+
+                &:hover {
+                    background-color: var(--clr-main);
+                }
+            }
         }
     }
 

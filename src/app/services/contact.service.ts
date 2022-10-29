@@ -181,6 +181,7 @@ export class ContactService {
     }
 
     public async saveContact(contact: Contact) {
+        if (!contact._id) contact._id = getRandomId()
         const newContact = await storageService.put(STORAGE_KEY, contact)
         this.loadContacts()
         return (newContact)

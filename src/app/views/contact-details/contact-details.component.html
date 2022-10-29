@@ -10,6 +10,13 @@
         </div>
         <div class="transfers">
             <h1>Transfer</h1>
+            <div class="box">
+                <label for="amount">Amount: </label>
+                <input [(ngModel)]="amount" type="number" id="amount">
+                <button (click)="handleTransaction()" class="btn btn-send">Transfer</button>
+                <h4 class="msg">{{msg}}</h4>
+            </div>
+            <transaction-list [contact]="contact"></transaction-list>
         </div>
     </section>
     <button (click)="goBack()" class="btn btn-back">Back</button>

@@ -19,5 +19,4 @@ export class HomeComponent implements OnInit {
     this.user = this.userService.getUser()
     this.rate = await lastValueFrom(this.bitcoinService.getCoinRate())
   }
-
 }
