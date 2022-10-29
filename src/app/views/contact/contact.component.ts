@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit(): void {
-    this.contactService.loadContacts({ term: "" })
+    this.contactService.loadContacts()
     this.subscription = this.contactService.contacts$.subscribe(contacts => {
       this.contacts = contacts
     })

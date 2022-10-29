@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, of, throwError } from 'rxjs';
-import { Contact } from '../../models/contact.model';
+import { Contact } from 'src/models/contact.model';
+import { storageService } from './async-storage.service';
 
-
+const STORAGE_KEY = 'contactsDB'
 
 const CONTACTS = [
     {
@@ -144,8 +145,12 @@ export class ContactService {
         }
     }
 
-    public loadContacts(filterBy: { term: string }): void {
-        let contacts = this._contactsDb;
+    public async loadContacts(filterBy?: { term: string }): Promise<void> {
+        let contacts: any = await storageService.query(STORAGE_KEY)
+        if (!contacts || contacts.length <= 0) {
+            contacts = this._contactsDb;
+            storageService.postMany(STORAGE_KEY, contacts)
+        }
         if (filterBy && filterBy.term) {
             contacts = this._filter(contacts, filterBy.term)
         }
@@ -153,24 +158,32 @@ export class ContactService {
     }
 
 
-    public getContactById(id: string): Observable<Contact> {
+    public async getContactById(id: string): Promise<Contact> {
         //mock the server work
-        const contact = this._contactsDb.find(contact => contact._id === id)
+        console.log('id:', id)
+        const contact = id ?
+            await storageService.get(STORAGE_KEY, id) as Contact :
+            this.getEmptyContact()
+
+        console.log('contactService:', contact)
 
         //return an observable
-        return contact ? of(contact) : of(this.getEmptyContact())
+        return contact
     }
 
-    public deleteContact(id: string) {
+    public async deleteContact(id: string) {
         //mock the server work
-        this._contactsDb = this._contactsDb.filter(contact => contact._id !== id)
+        // this._contactsDb = this._contactsDb.filter(contact => contact._id !== id)
+        await storageService.remove(STORAGE_KEY, id)
 
         // change the observable data in the service - let all the subscribers know
-        this._contacts$.next(this._contactsDb)
+        this.loadContacts()
     }
 
-    public saveContact(contact: Contact) {
-        return contact._id ? this._updateContact(contact) : this._addContact(contact)
+    public async saveContact(contact: Contact) {
+        const newContact = await storageService.put(STORAGE_KEY, contact)
+        this.loadContacts()
+        return (newContact)
     }
 
     private _updateContact(contact: Contact) {

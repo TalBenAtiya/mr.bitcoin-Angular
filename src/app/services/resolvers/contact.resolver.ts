@@ -12,11 +12,13 @@ import { ContactService } from '../contact.service';
     providedIn: 'root'
 })
 
-export class ContactResolver implements Resolve<Observable<void | Contact>> {
+export class ContactResolver implements Resolve<Promise<Contact>> {
     contactService = inject(ContactService)
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const id = route.params['id']
-        return this.contactService.getContactById(id)
+        const contact = await this.contactService.getContactById(id)
+        console.log(contact);
+        return contact
     }
 }

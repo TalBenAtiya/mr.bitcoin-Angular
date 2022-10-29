@@ -1,5 +1,5 @@
 <section [routerLink]="['/contact', contact._id]" class="contact-preview">
-    <button (click)="remove.emit(contact._id)" class="btn btn-close"><img src="../../../assets/img/remove.png" /></button>
+    <button (click)="onRemoveContact($event)" class="btn btn-close"><img src="../../../assets/img/remove.png" /></button>
     <button (click)="goToEdit($event)" class="btn btn-edit"><img src="../../../assets/img/edit.png" /></button>
     <div class="info">
         <h3>{{contact.name}}</h3>

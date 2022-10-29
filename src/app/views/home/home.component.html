@@ -1,5 +1,10 @@
-<section class="home main-layout">
-    <h2>Welcome , {{user.name}}</h2>
-    <h3>Balance is: {{user.balance}}BTC</h3>
-    <h5>Bitcoin/USD Rate {{rate}}</h5>
+<section *ngIf="rate" class="home main-layout">
+    <div class="container user">
+        <h2>Welcome , {{user.name}}</h2>
+        <h3>Balance is: <span>{{user.balance}}BTC</span></h3>
+    </div>
+    <div class="container rate">
+        <h3>BTC/USD</h3>
+        <h2> ${{rate}} </h2>
+    </div>
 </section>

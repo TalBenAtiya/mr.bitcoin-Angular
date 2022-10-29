@@ -1,0 +1,5 @@
+<section *ngIf="marketHistoryData.x.length > 0 
+    && marketHistoryData.y.length > 0" class="statistics main-layout">
+    <h1>Dashboard</h1>
+    <app-line-chart [chartX]="marketHistoryData.x" [chartY]="marketHistoryData.y"></app-line-chart>
+</section>

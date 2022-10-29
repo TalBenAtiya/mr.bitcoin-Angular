@@ -1,0 +1,12 @@
+<section class="login main-layout">
+    <h1>Welcome to Mr.bitcoin
+    </h1>
+    <h2>
+        Login to have <span>full access</span> to our services.
+    </h2>
+    <form (submit)="onLogin()">
+        <label for="username">Username: </label>
+        <input [(ngModel)]="username" id="username" type="text" name="username" />
+        <button>Login</button>
+    </form>
+</section>

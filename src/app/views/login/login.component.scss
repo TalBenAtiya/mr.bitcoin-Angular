@@ -1,0 +1,43 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        margin-bottom: 10px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    h2 {
+        max-width: 280px;
+        text-align: center;
+
+        span {
+            text-transform: uppercase;
+        }
+        margin-bottom: 30px;
+    }
+
+    form {
+        padding: 15px;
+        border: 1px solid var(--clr-main);
+        border-radius: 0.3em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        button {
+            border: none;
+            padding: 6px;
+            background-color: var(--clr-white2);
+            border-radius: 0.3em;
+
+            &:hover {
+                background-color: var(--clr-main);
+            }
+        }
+    }
+}

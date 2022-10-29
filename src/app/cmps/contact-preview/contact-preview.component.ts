@@ -22,4 +22,9 @@ export class ContactPreviewComponent implements OnInit {
     ev.stopPropagation()
     this.router.navigate(['/contact/edit', this.contact._id])
   }
+
+  onRemoveContact(ev: Event) {
+    ev.stopPropagation()
+    this.remove.emit(this.contact._id)
+  }
 }

@@ -18,4 +18,13 @@ export class BitcoinService {
       )
      
   }
+
+  public getMarketPriceHistory() {
+
+    return this.http.get<{ values: [{ x: number, y: number }] }>('https://api.blockchain.info/charts/market-price?timespan=10months&format=json&cors=true')
+    .pipe(
+      map(res => res.values
+      )
+    )
+  }
 }

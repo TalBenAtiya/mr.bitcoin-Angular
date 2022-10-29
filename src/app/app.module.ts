@@ -11,6 +11,11 @@ import { ContactDetailsComponent } from './views/contact-details/contact-details
 import { HttpClientModule } from '@angular/common/http';
 import { ContactEditComponent } from './views/contact-edit/contact-edit.component';
 import { FormsModule } from '@angular/forms';
+import { StatisticsComponent } from './views/statistics/statistics.component';
+import { LineChartComponent } from './cmps/line-chart/line-chart.component';
+import { NgChartsModule } from 'ng2-charts';
+import { LoginComponent } from './views/login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +25,16 @@ import { FormsModule } from '@angular/forms';
     ContactPreviewComponent,
     ContactDetailsComponent,
     ContactEditComponent,
+    StatisticsComponent,
+    LineChartComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

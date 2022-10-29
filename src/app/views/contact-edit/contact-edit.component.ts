@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from 'src/models/contact.model';
 import { ContactService } from 'src/app/services/contact.service';
-import { lastValueFrom ,Subscription } from 'rxjs'
+import { lastValueFrom, Subscription } from 'rxjs'
 
 @Component({
   selector: 'contact-edit',
@@ -20,20 +20,16 @@ export class ContactEditComponent implements OnInit {
   paramsSubscription!: Subscription
 
   ngOnInit(): void {
-    this.paramsSubscription = this.route.params.subscribe(async ({ id }) => {
-            if (id) {
-                const contact = await lastValueFrom(this.contactService.getContactById(id))
-                if (contact) this.contact = contact
-            } else {
-              this.contact = this.contactService.getEmptyContact()
-            }
-        })
+    this.paramsSubscription = this.route.data.subscribe(data => {
+      const contact = data['contact']
+      if (contact) this.contact = contact
+  })
   }
 
   async onSaveContact() {
     console.log('this.contact:', this.contact)
-      await lastValueFrom(this.contactService.saveContact(this.contact))
-      this.router.navigateByUrl('/contact')
+    await this.contactService.saveContact(this.contact)
+    this.router.navigateByUrl('/contact')
   }
 
   goBack() {

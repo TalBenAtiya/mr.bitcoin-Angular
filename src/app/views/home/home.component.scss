@@ -1,0 +1,30 @@
+.home {
+    display: flex;
+    gap: 30px;
+
+    .container {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--clr-white2);
+        border-radius: 0.4em;
+        box-shadow: var(--box-shadow-light);
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rate {
+        h2 {
+            color: var(--clr-main);
+        }
+    }
+
+    .user {
+        span {
+            color: var(--clr-main);
+            font-size: 20px;
+        }
+    }
+
+}

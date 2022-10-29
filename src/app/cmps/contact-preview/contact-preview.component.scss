@@ -5,7 +5,7 @@
     min-width: 400px;
     padding: 15px;
     background-color: var(--clr-white2);
-    box-shadow: 0px -1px 29px -11px rgba(0, 0, 0, 0.113);
+    box-shadow: var(--box-shadow-light);
     transition: 0.3s ease-in-out;
     cursor: pointer;
     border-radius: 0.3em;
@@ -13,7 +13,7 @@
     overflow: hidden;
 
     &:hover {
-        box-shadow: 0px -1px 29px -11px rgba(0, 0, 0, 0.44);
+        box-shadow: var(--box-shadow-hover);
         background-color: var(--clr-main);
 
         .btn-close {
